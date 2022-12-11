@@ -162,6 +162,7 @@ def getTaskStatus(sessionId: str, taskId: str, response: Response, confidence_th
             # confidence_threshold = task_params.params.confidence_threshold
             
             e_cnt = 0
+            weight_threshold = None
             for edge in sorted_edges:
                 e = edge['data']
                 e_cnt += 1
