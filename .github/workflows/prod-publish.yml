@@ -1,7 +1,8 @@
 name: prod publish
 on:
-  # push:
-  #   branches: [master]
+  #push:
+  #  branches: []
+  workflow_dispatch:
 jobs:
   auto-build:
     runs-on: ubuntu-latest

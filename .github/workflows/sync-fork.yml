@@ -1,0 +1,20 @@
+name: Merge upstream branches
+on:
+  schedule:
+    - cron: '0,20,40 * * * *'
+  workflow_dispatch:
+jobs:
+  fetch-upstream:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Fetch upstream
+        run: |
+          git config --global user.name 'github action'
+          git config --global user.email 'git@github.com'
+          git pull --unshallow
+          git remote add upstream https://github.com/Kanaries/Rath
+          git fetch upstream --prune --tags
+      - name: Sync upstream
+        run: |
+          git branch -r --list 'upstream/*' | awk -F'upstream/' '!/HEAD/{print "+refs/remotes/upstream/"$2  ":"  "refs/heads/up/"$2}' | xargs -L 1 git push origin

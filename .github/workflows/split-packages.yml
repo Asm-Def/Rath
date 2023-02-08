@@ -1,0 +1,25 @@
+name: Split packages
+on:
+  push:
+    branches: 'up/**'
+    paths: 'packages/**'
+  workflow_dispatch:
+jobs:
+  split-packages:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Add subtree repos
+        run: |
+          git config --global user.name 'github action'
+          git config --global user.email 'git@github.com'
+          echo 'https://Asm-Def:$SPLITTER_TOKEN@github.com/Asm-Def/rath-client'
+          git remote add client https://Asm-Def:$SPLITTER_TOKEN@github.com/Asm-Def/rath-client
+          git remote add vega https://Asm-Def:$SPLITTER_TOKEN@github.com/Asm-Def/vega-scenegraph
+          git pull --unshallow
+          git fetch client
+          git fetch vega
+          git subtree push -P packages/rath-client client ${GITHUB_REF##refs/heads/}
+          git subtree push -P packages/vega-scenegraph vega ${GITHUB_REF##refs/heads/}
+        env:
+          ACC_TOKEN: ${{ secrets.RATH_SPLITTER_TOKEN }}
