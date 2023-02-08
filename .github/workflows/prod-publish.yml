@@ -1,7 +1,7 @@
 name: prod publish
 on:
-  push:
-    branches: [master]
+  # push:
+  #   branches: [master]
 jobs:
   auto-build:
     runs-on: ubuntu-latest
