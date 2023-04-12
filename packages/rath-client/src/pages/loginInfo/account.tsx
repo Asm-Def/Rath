@@ -1,12 +1,13 @@
-import React from 'react';
 import { observer } from 'mobx-react-lite';
 import intl from 'react-intl-universal';
+import { useMemo } from 'react';
 import { DefaultButton, Pivot, PivotItem, Stack, TextField } from '@fluentui/react';
 import { useGlobalStore } from '../../store';
 import { IAccessMethod } from '../../interfaces';
 import PhoneAuth from './access/phoneAuth';
 import EmailAuth from './access/emailAuth';
 import PasswordLogin from './access/passwordLogin';
+import WorkspaceRole from './workspaceRole';
 
 const PIVOT_LIST = [
     {
@@ -47,6 +48,12 @@ function Account() {
     const { userStore } = useGlobalStore();
     const { info } = userStore;
     const userIsOnline = info !== null && info.userName && info.userName !== '';
+    const accountUrl = useMemo(() => {
+        const url = new URL(window.location.origin);
+        url.host = url.host.split('.').slice(-2).join('.');
+        url.pathname = '/me';
+        return url;
+    }, []);
 
     return (
         <div>
@@ -54,15 +61,17 @@ function Account() {
             {userIsOnline && (
                 <div>
                     <Stack tokens={{ childrenGap: 12 }}>
-                        <TextField label="Phone" value={info?.phone} disabled={true} />
-                        <TextField label="Email" value={info?.email} disabled={true} />
+                        <WorkspaceRole />
+                        <TextField label="Phone" value={info?.phone} disabled />
+                        <TextField label="Email" value={info?.email} disabled />
                         <div>
                             <DefaultButton
                                 onClick={() => {
-                                    userStore.commitLogout();
+                                    window.open(accountUrl, '_blank');
+                                    // userStore.commitLogout();
                                 }}
                             >
-                                {intl.get('login.signOut')}
+                                {intl.get('login.my_account')}
                             </DefaultButton>
                         </div>
                     </Stack>

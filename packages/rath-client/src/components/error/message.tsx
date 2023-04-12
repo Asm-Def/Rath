@@ -13,10 +13,19 @@ const Cont = styled.div`
     padding: 1rem;
     z-index: 100;
     margin-top: 1rem;
-    border: 1px solid #cfcfcf;
+    border: 1px solid #f6f6f6;
     position: relative;
     display: grid;
     grid-template-columns: repeat(6,minmax(0,1fr));
+    box-sizing: border-box;
+    h1 {
+        font-size: 16px;
+        font-weight: 400;
+    }
+    h1, p {
+        margin: 0;
+        line-height: 1.5em;
+    }
     >.span-5-content{
         grid-column: span 5 / span 5;
         >p{
@@ -54,7 +63,9 @@ const Cont = styled.div`
         color: #4b5563;
     }
     .text-2xl{
-        font-size: 1.5em;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        height: 1.5rem;
     }
     .allow-break-line{
         white-space: pre-line;

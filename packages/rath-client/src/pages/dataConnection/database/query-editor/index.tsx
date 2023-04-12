@@ -39,13 +39,13 @@ const QueryEditor = ({ tableEnumerable, tables, query, setQuery, preview }: Quer
                 mode: 'query',
                 enabled: true,
                 iconName: 'FileSQL',
-                label: 'Query'
+                label: 'Query',
             },
             {
                 mode: 'diagram',
                 enabled: Array.isArray(tables),
                 label: 'Diagram',
-                iconName: 'VisioDiagram'
+                iconName: 'VisioDiagram',
             },
         ];
     }, [tables]);

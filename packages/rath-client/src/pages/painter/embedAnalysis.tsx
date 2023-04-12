@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { GraphicWalker } from '@kanaries/graphic-walker';
-import '@kanaries/graphic-walker/dist/style.css';
 import { Specification } from 'visual-insights';
 import { IMutField } from '@kanaries/graphic-walker/dist/interfaces';
 import { IRow } from '../../interfaces';
@@ -27,6 +26,8 @@ const EmbedAnalysis: React.FC<EmbedAnalysisProps> = props => {
         i18nLang={i18nLang}
         hideDataSourceConfig
         keepAlive
+        dark="light"
+        fieldKeyGuard={false}
     />
 }
 

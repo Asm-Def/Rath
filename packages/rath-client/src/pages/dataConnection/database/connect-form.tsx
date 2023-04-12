@@ -6,7 +6,6 @@ import { renderDropdownItem, renderDropdownTitle } from './custom-dropdown';
 import type { DatabaseOptions, SupportedDatabaseType } from './type';
 import { StackTokens } from '.';
 
-
 interface ConnectFormProps {
     sourceType: SupportedDatabaseType;
     setSourceType: (sType: SupportedDatabaseType) => void;
@@ -69,15 +68,11 @@ const ConnectForm: FC<ConnectFormProps> = ({
                 aria-required
                 value={connectUri}
                 placeholder={whichDatabase.rule}
-                errorMessage={
-                    sourceId === null
-                        ? intl.get('dataSource.btn.connectFailed')
-                        : undefined
-                }
+                errorMessage={sourceId === null ? intl.get('dataSource.btn.connectFailed') : undefined}
                 onChange={(_, uri) => {
                     setConnectUri(uri ?? '');
                 }}
-                onKeyPress={e => {
+                onKeyPress={(e) => {
                     if (e.key === 'Enter') {
                         handleConnectionTest();
                     }
@@ -117,10 +112,7 @@ interface ConnectFormReadonlyProps {
     resetConnectUri: () => void;
 }
 
-export const ConnectFormReadonly: FC<ConnectFormReadonlyProps> = ({
-    connectUri,
-    resetConnectUri,
-}) => {
+export const ConnectFormReadonly: FC<ConnectFormReadonlyProps> = ({ connectUri, resetConnectUri }) => {
     return (
         <Stack
             tokens={StackTokens}
@@ -154,6 +146,5 @@ export const ConnectFormReadonly: FC<ConnectFormReadonlyProps> = ({
         </Stack>
     );
 };
-
 
 export default ConnectForm;

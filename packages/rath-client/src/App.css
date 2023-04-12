@@ -1,6 +1,11 @@
 .content-container{
   /* padding: 1em 9% 0px 9%; */
-  padding: 3px 1em;
+  padding: 1em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .header-bar{
   position: relative;
@@ -105,10 +110,6 @@ h2, h3 {
   padding: 0.5rem;
 }
 
-.message-container {
-  padding: 1em 4em 0em 4em;
-}
-
 .main-app-container{
   display: flex;
   overflow: auto;
@@ -150,5 +151,20 @@ h2, h3 {
 }
 
 hr{
-  border-color: #efefef;
+  border: none;
+  border-top: 1px solid #efefef;
+}
+
+h1 {
+  font-weight: 400;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

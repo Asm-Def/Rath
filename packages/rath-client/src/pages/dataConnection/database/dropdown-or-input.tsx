@@ -3,7 +3,6 @@ import type { FC } from 'react';
 import intl from 'react-intl-universal';
 import { inputWidth } from '.';
 
-
 interface DropdownOrInputProps {
     name: string;
     options: IDropdownOption[] | null;
@@ -11,12 +10,7 @@ interface DropdownOrInputProps {
     setValue: (key: string) => void;
 }
 
-const DropdownOrInput: FC<DropdownOrInputProps> = ({
-    name,
-    options,
-    value,
-    setValue,
-}) => {
+const DropdownOrInput: FC<DropdownOrInputProps> = ({ name, options, value, setValue }) => {
     return options ? (
         <Dropdown
             label={intl.get(name)}

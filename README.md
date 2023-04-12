@@ -1,4 +1,4 @@
-![](https://docs-us.oss-us-west-1.aliyuncs.com/images/rath-banner.png)
+![](https://docs-us.oss-us-west-1.aliyuncs.com/images/readme/rath-main-banner.png)
 
 <div id="header" align="center">
   <div id="badges">
@@ -17,7 +17,7 @@
   <a href="https://discord.gg/Z4ngFWXz2U">
     <img src="https://img.shields.io/badge/Discord-indigo?style=flat-square&logo=discord&logoColor=white" alt="Join RATH on Discord"/>
   </a>
-  <a href="https://join.slack.com/t/kanaries/shared_invite/zt-1k60sgaxu-aGcuS7CwGeJUccE61iGopg">
+  <a href="https://join.slack.com/t/kanaries-community/shared_invite/zt-1pcosgbua-E_GBPawQOI79C41dPDyyvw">
     <img src="https://img.shields.io/badge/Slack-green?style=flat-square&logo=slack&logoColor=white" alt="Join RATH on Slack"/>
   </a> 
   </div>
@@ -41,7 +41,7 @@
 
 ## Introduction
 
-**RATH** is beyond an open-source alternative to Data Analysis and Visualization tools such as Tableau. It automates your Exploratory Data Analysis workflow with an Augmented Analytic engine by discovering patterns, insights, causals and presents those insights with powerful auto-generated multi-dimensional data visualization.
+**RATH** i an software beyond open-source alternative to Data Analysis and Visualization tools such as Tableau. It automates your Exploratory Data Analysis workflow with an Augmented Analytic engine by discovering patterns, insights, causals and presents those insights with powerful auto-generated multi-dimensional data visualization.
 
 <a href="https://kanaries.net"><img src="https://kanaries-docs.oss-cn-hangzhou.aliyuncs.com/img/github-readme/feature-demo.gif" alt="RATH features demo"></a>
 
@@ -77,12 +77,17 @@ Get started with RATH now!
 
 ### Import data from online databases or CSV/JSON files.
 
-[![](https://docs-us.oss-us-west-1.aliyuncs.com/images/readme/datasource-readme.gif)](https://docs.kanaries.net/data-profiling#import-your-data)
+[![](https://docs-us.oss-us-west-1.aliyuncs.com/images/readme/data-source-feature.png)](https://docs.kanaries.net/data-profiling#import-your-data)
 
 
 ### View statistics from your data source
 
 [![](https://docs-us.oss-us-west-1.aliyuncs.com/images/readme/data-profiling-readme.gif)](https://docs.kanaries.net/data-profiling#data-profiling)
+
+### Data Preparation
+RATH support data preparation with black magic like predictive transformation operations. It will automatically generate suggestions of transformations and cleaning, etc.
+
+[![](https://docs-us.oss-us-west-1.aliyuncs.com/images/readme/text-pattern-general.gif)](https://docs.kanaries.net/data-profiling#data-profiling)
 
 ### One-click automated data analysis with visualizations
 
@@ -116,7 +121,7 @@ Assisted with AI, RATH can help you with your data analysis. Just provide RATH w
 
 ### 🌅 Causal Analysis (Alpha stage)
 
-Causal analysis could be defined as the way to identify and examine the causal relationship between variables, which can help explore the data, create better prediction models and make business decission.
+Causal analysis could be defined as the way to identify and examine the causal relationship between variables, which can help explore the data, create better prediction models and make business decision.
 
 RATH's causal analysis feature include:
 - Causal Discovery
@@ -125,7 +130,7 @@ RATH's causal analysis feature include:
 - Interactive tools for deeper exploration
 - What-if analysis
 
-![Causal Analysis](https://kanaries-docs.oss-cn-hangzhou.aliyuncs.com/img/github-readme/causal-analysis.png)
+![Causal Analysis](https://docs-us.oss-us-west-1.aliyuncs.com/images/readme/causal-feature.png)
 
 For more about Causal Analysis features, refer to [RATH Docs](https://docs.kanaries.net/causal-analysis).
 
@@ -152,6 +157,10 @@ If you want to add support for more database types or data engines, feel free to
 
 ## Developer Documentation
 
+RATH software is in open alpha stage. We are working on improving its code and documentation.
+
+If you are using RATH for your project(s), please let us know what are you using it for by emailing us at  [support@kanaries.org](support@kanaries.org). Feedbacks are also welcomed. If you find a bug or have a feature request, please create an issue.
+
 We encourage you to check out our [RATH Docs](https://docs.kanaries.net) for references and guidance. RATH Docs are scripted and maintained by technical writers and editors who collectively follow a standardized [style guide](https://docs.kanaries.net/documentation-style-guide) to produce clear and consistent documentation.
 
 ## Project Status
@@ -163,12 +172,12 @@ We encourage you to check out our [RATH Docs](https://docs.kanaries.net) for ref
 [Kanaries community](https://docs.kanaries.net/community) is a place to have open discussions on features, voice your ideas, or get help with general questions. Get onboard with us through the following channels:
 
 Our developer community is the backbone of the ongoing RATH project. We sincerely welcome you to [join our community](join), participate in the conversation and stay connected with us for the latest updates.
-- [Join our Slack](https://join.slack.com/t/kanaries/shared_invite/zt-1k60sgaxu-aGcuS7CwGeJUccE61iGopg)
+- [Join our Slack](https://join.slack.com/t/kanaries-community/shared_invite/zt-1pcosgbua-E_GBPawQOI79C41dPDyyvw)
 - [Join our Discord](https://discord.gg/Z4ngFWXz2U)
 
 Feel free to [contribute to the RATH project](contribution-guide), submit any issues on our GitHub page, or split your grand new ideas in our chats.
 
-<a href="https://join.slack.com/t/kanaries/shared_invite/zt-1k60sgaxu-aGcuS7CwGeJUccE61iGopg"><img src="https://kanaries-docs.oss-cn-hangzhou.aliyuncs.com/img/slack.png" alt="Join our Slack community" width="200"/></a>
+<a href="https://join.slack.com/t/kanaries-community/shared_invite/zt-1pcosgbua-E_GBPawQOI79C41dPDyyvw"><img src="https://kanaries-docs.oss-cn-hangzhou.aliyuncs.com/img/slack.png" alt="Join our Slack community" width="200"/></a>
 <a href="https://discord.gg/Z4ngFWXz2U"><img src="https://kanaries-docs.oss-cn-hangzhou.aliyuncs.com/img/discord.png" alt="Join our Discord community" width="200"/> </a>
 
 
@@ -194,18 +203,7 @@ Thanks to all contributors :heart:
 ## LICENSE (AGPL)
 Rath is an automated data analysis and visualization tool (auto-EDA).
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+See LICENSE and LICENSE2 for details.
 
 ---
 

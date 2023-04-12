@@ -4,7 +4,6 @@ import intl from 'react-intl-universal';
 import TablePreview from './table-preview';
 import { StackTokens, TableData, TableLabels } from '.';
 
-
 interface QueryFormProps {
     preview: TableData<TableLabels>;
     isQuerying: boolean;
@@ -15,23 +14,11 @@ interface QueryFormProps {
     disableQuery: boolean;
 }
 
-const QueryForm: FC<QueryFormProps> = ({
-    preview,
-    isQuerying,
-    tableName,
-    queryString,
-    setQueryString,
-    query,
-    disableQuery,
-}) => {
+const QueryForm: FC<QueryFormProps> = ({ preview, isQuerying, tableName, queryString, setQueryString, query, disableQuery }) => {
     return (
         <Stack tokens={StackTokens} style={{ marginBlockStart: '0.35em' }}>
-            <Label>
-                {intl.get('dataSource.preview')}
-            </Label>
-            <TablePreview
-                data={preview}
-            />
+            <Label>{intl.get('dataSource.preview')}</Label>
+            <TablePreview data={preview} />
             <Stack
                 horizontal
                 style={{
@@ -54,7 +41,7 @@ const QueryForm: FC<QueryFormProps> = ({
                     onChange={(_, sql) => {
                         setQueryString(sql ?? '');
                     }}
-                    onKeyPress={e => {
+                    onKeyPress={(e) => {
                         if (e.key === 'Enter') {
                             query();
                         }
@@ -73,6 +60,5 @@ const QueryForm: FC<QueryFormProps> = ({
         </Stack>
     );
 };
-
 
 export default QueryForm;

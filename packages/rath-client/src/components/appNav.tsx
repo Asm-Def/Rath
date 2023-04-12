@@ -48,6 +48,12 @@ const LogoBar = styled.div`
         margin-left: 12px;
         font-size: 1.6em;
     }
+    a {
+        display: flex;
+    }
+    img {
+        height: auto;
+    }
 `;
 
 const IconMap = {
@@ -61,6 +67,7 @@ const IconMap = {
     [PIVOT_KEYS.collection]: 'Heart',
     [PIVOT_KEYS.dashboard]: 'Presentation',
     [PIVOT_KEYS.causal]: 'Relationship',
+    [PIVOT_KEYS.connection]: 'Database'
 } as {
     [key: string]: string;
 };
@@ -139,6 +146,7 @@ const AppNav: React.FC<AppNavProps> = (props) => {
         {
             links: [
                 ...getLinks([
+                    PIVOT_KEYS.connection,
                     PIVOT_KEYS.dataSource,
                 ]),
                 {
@@ -188,8 +196,9 @@ const AppNav: React.FC<AppNavProps> = (props) => {
         <NavContainer>
             <LogoBar>
                 <a
-                    // onClick={() => { window.location.reload(false); }}
-                    href="https://kanaries.cn/"
+                    href={`${window.location.protocol}//rath.${window.location.host.split('.').slice(-2).join('.')}/`}
+                    target="_blank"
+                    rel="noreferrer"
                 >
                     <img style={{ width: '38px', marginTop: '4px' }} src="./assets/kanaries-lite.png" alt="rath" />
                 </a>

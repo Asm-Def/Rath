@@ -1,7 +1,7 @@
 import { FC, useMemo, useState } from 'react';
 import intl from 'react-intl-universal';
 import { observer } from 'mobx-react-lite';
-import { Dialog, INavLinkGroup, Nav } from '@fluentui/react';
+import { Dialog, INavLinkGroup, Nav, Persona, PersonaSize } from '@fluentui/react';
 import styled from 'styled-components';
 import { useGlobalStore } from '../../store';
 import Account from './account';
@@ -72,7 +72,7 @@ const Container = styled.div`
 const LoginInfo: FC = () => {
     const { commonStore, userStore } = useGlobalStore();
     const { navMode } = commonStore;
-    const { userName, info } = userStore;
+    const { info } = userStore;
     const [showUserPanel, setShowUserPanel] = useState(false);
     const [tab, setTab] = useState<PreferencesType>(PreferencesType.Account);
 
@@ -114,6 +114,8 @@ const LoginInfo: FC = () => {
             <Dialog
                 modalProps={{
                     isBlocking: true,
+                    // to make an error message closable
+                    isClickableOutsideFocusTrap: true,
                 }}
                 hidden={!showUserPanel}
                 onDismiss={() => {
@@ -132,19 +134,21 @@ const LoginInfo: FC = () => {
                     </div>
                 </Container>
             </Dialog>
-            <div className="user-avatar" style={{ backgroundImage: `url(${info?.avatarURL || '/assets/cat3_1_question.jpeg'})`}}></div>
-            {navMode === 'text' && (
-                <div>
-                    {userName || (
-                        <LoginButton
-                            text={intl.get('login.clickLogin')}
-                            onClick={() => {
-                                setShowUserPanel(true);
-                            }}
-                        />
-                    )}
-                </div>
-            )}
+            <div
+                className="user"
+                onClick={() => {
+                    setShowUserPanel(true);
+                }}
+            >
+                {info && (
+                    <Persona
+                        text={navMode === 'text' ? info.userName : ''}
+                        imageUrl={info.avatarURL}
+                        size={PersonaSize.size32}
+                    />
+                )}
+                {!info && navMode === 'text' && <LoginButton text={intl.get('login.clickLogin')} />}
+            </div>
         </LoginInfoDiv>
     );
 };

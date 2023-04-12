@@ -3,7 +3,6 @@ import { Box, Step, StepLabel, Stepper } from '@material-ui/core';
 import intl from 'react-intl-universal';
 import type { DatabaseOptions } from './type';
 
-
 interface StepConfig {
     label: string;
     idx: number;
@@ -47,12 +46,7 @@ const getStageInfo = (progress: Readonly<DatabaseOptions>): StageInfo[] => {
         desc: '',
     }));
 
-    const {
-        connectorReady,
-        sourceId,
-        table,
-        preview,
-    } = progress;
+    const { connectorReady, sourceId, table, preview } = progress;
 
     let cursorFixed = false;
 
@@ -62,15 +56,13 @@ const getStageInfo = (progress: Readonly<DatabaseOptions>): StageInfo[] => {
         if (connectorReady) {
             stages[0]!.desc = intl.get('dataSource.dbProgress.0.msgRunning');
         }
-        
+
         cursorFixed = true;
     } else {
         stages[0]!.completed = true;
-        stages[0]!.desc = intl.get(`dataSource.dbProgress.0.${
-            sourceId !== null ? 'msgSucceeded' : 'msgFailed'
-        }`);
+        stages[0]!.desc = intl.get(`dataSource.dbProgress.0.${sourceId !== null ? 'msgSucceeded' : 'msgFailed'}`);
         stages[0]!.failed = sourceId === null;
-        
+
         if (stages[0]!.failed) {
             cursorFixed = true;
         }
@@ -118,25 +110,16 @@ const Progress: React.FC<ProgressProps> = ({ progress }) => {
         <div style={{ margin: '2em 0em 1em 0em' }}>
             <Box sx={{ width: '100%' }}>
                 <Stepper alternativeLabel>
-                    {
-                        stages.map(stage => (
-                            <Step
-                                key={stage.label}
-                                completed={stage.completed}
-                                active={stage.active}
-                                style={{ textAlign: 'center' }}
-                            >
-                                <StepLabel error={stage.failed}>
-                                    {stage.title}
-                                </StepLabel>
-                                <p>{stage.desc}</p>
-                            </Step>
-                        ))
-                    }
+                    {stages.map((stage) => (
+                        <Step key={stage.label} completed={stage.completed} active={stage.active} style={{ textAlign: 'center' }}>
+                            <StepLabel error={stage.failed}>{stage.title}</StepLabel>
+                            <p>{stage.desc}</p>
+                        </Step>
+                    ))}
                 </Stepper>
             </Box>
         </div>
     );
-}
+};
 
 export default Progress;

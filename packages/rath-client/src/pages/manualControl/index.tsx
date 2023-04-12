@@ -27,6 +27,10 @@ const VisualInterface: React.FC = (props) => {
             spec={graphicWalkerSpec}
             i18nLang={langStore.lang}
             keepAlive
+            dark="light"
+            fieldKeyGuard={false}
+            themeKey="g2"
+            hideDataSourceConfig={true}
         />
     );
 };

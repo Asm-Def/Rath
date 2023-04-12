@@ -4,6 +4,7 @@ export const RATH_INDEX_COLUMN_KEY = '__rath_index_col_key__';
 
 export const PIVOT_KEYS = {
     dataSource: 'dataSource',
+    connection: 'connection',
     editor: 'editor',
     support: 'support',
     megaAuto: 'megaAuto',
@@ -70,3 +71,6 @@ export const RathEnv: RATH_ENV = (
         : globalThis.window === undefined || globalThis.window?.location.host.match(/^(.*\.)?kanaries\.(net|cn)$/) ? RATH_ENV.ONLINE
         : globalThis.window?.location.host.match(/^.*kanaries\.vercel\.app$/) ? RATH_ENV.IPE : RATH_ENV.LPE
 );
+
+export const KanariesDatasetFilenameCloud = 'data.kanaries-data';
+export const KanariesDatasetPackCloudExtension = 'kanaries-pack';

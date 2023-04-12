@@ -7,6 +7,7 @@ import { default as VIS_POWERBI_THEME } from './theme-powerbi';
 import { default as VIS_538_THEME } from './theme-fivethreeeight'
 import { default as VIS_EXCEL_THEME } from './theme-excel';
 import { default as VIS_LATIMES_THEME } from './theme-latimes'
+import { default as VIS_G2_THEME } from './theme-g2';
 
 export enum THEME_KEYS {
     googlecharts = 'googlecharts',
@@ -16,28 +17,17 @@ export enum THEME_KEYS {
     powerbi = 'powerbi',
     fivethreeeight = '538',
     excel = 'excel',
-    latimes = 'latimes'
+    latimes = 'latimes',
+    g2 = 'g2',
 }
 
-export function visThemeParser (themeKey?: string): VegaThemeConfig | undefined {
-    if (typeof themeKey === 'undefined') return;
-    switch (themeKey) {
-        case THEME_KEYS.googlecharts:
-            return VIS_GOOGLE_THEME;
-        case THEME_KEYS.powerbi:
-            return VIS_POWERBI_THEME;
-        case THEME_KEYS.ggplot2:
-            return VIS_GGPLOT2_THEME;
-        case THEME_KEYS.vox:
-            return VIS_VOX_THEME;
-        case THEME_KEYS.excel:
-            return VIS_EXCEL_THEME;
-        case THEME_KEYS.fivethreeeight:
-            return VIS_538_THEME;
-        case THEME_KEYS.latimes:
-            return VIS_LATIMES_THEME;
-        case THEME_KEYS.default:
-        default:
-            return;
-    }
-}
+export const prebuiltThemes: Readonly<Record<string, VegaThemeConfig>> = {
+    [THEME_KEYS.googlecharts]: VIS_GOOGLE_THEME,
+    [THEME_KEYS.powerbi]: VIS_POWERBI_THEME,
+    [THEME_KEYS.ggplot2]: VIS_GGPLOT2_THEME,
+    [THEME_KEYS.vox]: VIS_VOX_THEME,
+    [THEME_KEYS.excel]: VIS_EXCEL_THEME,
+    [THEME_KEYS.fivethreeeight]: VIS_538_THEME,
+    [THEME_KEYS.latimes]: VIS_LATIMES_THEME,
+    [THEME_KEYS.g2]: VIS_G2_THEME,
+};

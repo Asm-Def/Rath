@@ -1,4 +1,4 @@
-import { TableInfo } from "../api";
+import { TableInfo } from '../api';
 
 export interface QueryEditorProps {
     tableEnumerable: boolean;
